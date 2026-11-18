@@ -1,27 +1,60 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HOLISTIC - تحديث</title>
-<style>
-body{font-family:Arial;background:#0f172a;color:#fff;text-align:center;padding:20px}
-.box{background:#1e293b;padding:20px;border-radius:20px;max-width:400px;margin:auto}
-h1{color:#22c55e}
-.btn{display:block;background:#22c55e;color:#fff;padding:15px;margin:10px 0;border-radius:12px;text-decoration:none;font-weight:bold;font-size:18px}
-.link{background:#334155}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>تحديث تطبيق HOLISTIC</title>
+  <style>
+    :root { --gold: #D4AF37; --bg: #0E0E10; --card: #18181C; --text: #FFFFFF; --muted: #AAAAAA; }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, -apple-system, sans-serif; }
+    body { background: var(--bg); color: var(--text); display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 20px; }
+    .card { width: 100%; max-width: 440px; background: var(--card); border: 2px solid var(--gold); border-radius: 22px; padding: 26px 22px; text-align: center; box-shadow: 0 14px 40px rgba(0,0,0,0.65); }
+    .logo { width: 76px; height: 76px; border-radius: 50%; background: #111; border: 2px solid var(--gold); color: var(--gold); font-size: 36px; font-weight: bold; display: flex; align-items: center; justify-content: center; margin: 0 auto 14px; }
+    .badge { display: inline-block; background: var(--gold); color: #000; font-weight: bold; font-size: 12px; padding: 5px 14px; border-radius: 12px; margin-bottom: 12px; }
+    h1 { color: var(--gold); font-size: 22px; margin-bottom: 6px; }
+    .version { color: var(--muted); font-size: 14px; margin-bottom: 16px; }
+    .box { background: #111114; border: 1px solid #2E2E34; border-radius: 14px; padding: 14px; text-align: right; font-size: 14px; line-height: 1.7; margin-bottom: 20px; }
+    .box ul { padding-right: 18px; margin-top: 8px; }
+    .btn { display: block; width: 100%; padding: 14px; border-radius: 14px; font-size: 16px; font-weight: bold; text-decoration: none; cursor: pointer; border: none; margin-bottom: 10px; }
+    .btn-primary { background: var(--gold); color: #000; }
+    .btn-secondary { background: #26262C; color: #FFF; border: 1px solid #444; }
+  </style>
 </head>
 <body>
-<div class="box">
-<h1>HOLISTIC</h1>
-<h2>تحديث جديد متوفر</h2>
-<p>تم إصلاح الحجب وتحسين الزر الدائم</p>
-<a class="btn" href="https://github.com/MujahidMods/holistic-update/releases/download/v1.0/HOLISTIC.apk">تحميل التحديث الآن</a>
-<a class="btn link" href="https://wa.me/967779018032">واتساب</a>
-<a class="btn link" href="https://t.me/apks_gold">تيليجرام</a>
-<a class="btn link" href="https://instagram.com/holistic_app">انستقرام</a>
-<a class="btn link" href="https://facebook.com/holisticapp">فيسبوك</a>
-</div>
+  <div class="card">
+    <div class="logo">H</div>
+    <span id="badge" class="badge">تحديث جديد متاح</span>
+    <h1 id="title">تحديث تطبيق HOLISTIC</h1>
+    <div id="version" class="version">جارٍ جلب معلومات الإصدار...</div>
+    <div class="box">
+      <div id="message">يرجى الانتظار...</div>
+      <ul id="whatsNew"></ul>
+    </div>
+    <a id="downloadBtn" class="btn btn-primary" href="#">تحديث الآن (تحميل APK)</a>
+    <a id="linksBtn" class="btn btn-secondary" href="links.html">صفحة التواصل والروابط</a>
+  </div>
+  <script>
+    fetch('update.json?t=' + Date.now())
+      .then(r => r.json())
+      .then(data => {
+        document.getElementById('title').textContent = data.update_title || 'تحديث تطبيق HOLISTIC';
+        document.getElementById('version').textContent = 'الإصدار: ' + (data.latest_version || '1.0');
+        document.getElementById('message').textContent = data.update_message || '';
+        const badge = document.getElementById('badge');
+        if (data.force_update) {
+          badge.textContent = 'تحديث إجباري مطلوب';
+          badge.style.background = '#FF5252';
+          document.getElementById('linksBtn').style.display = 'none';
+        }
+        const ul = document.getElementById('whatsNew');
+        ul.innerHTML = '';
+        (data.whats_new || []).forEach(item => {
+          const li = document.createElement('li');
+          li.textContent = item;
+          ul.appendChild(li);
+        });
+        document.getElementById('downloadBtn').href = data.apk_url || '#';
+      });
+  </script>
 </body>
 </html>
