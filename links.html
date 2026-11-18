@@ -1,21 +1,46 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>روابط HOLISTIC</title>
-<style>
-body{font-family:Arial;background:#0f172a;color:#fff;text-align:center;padding:20px}
-a{display:block;background:#22c55e;color:#fff;padding:15px;margin:10px auto;border-radius:12px;text-decoration:none;max-width:350px;font-weight:bold}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>روابط تطبيق HOLISTIC</title>
+  <style>
+    :root { --gold: #D4AF37; --bg: #0E0E10; --card: #18181C; }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, -apple-system, sans-serif; }
+    body { background: var(--bg); color: #FFF; display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 20px; }
+    .card { width: 100%; max-width: 420px; background: var(--card); border: 2px solid var(--gold); border-radius: 22px; padding: 24px 20px; text-align: center; }
+    h1 { color: var(--gold); font-size: 24px; margin-bottom: 8px; }
+    p { color: #AAA; font-size: 14px; margin-bottom: 20px; }
+    .link-btn { display: block; width: 100%; padding: 14px; margin-bottom: 12px; border-radius: 14px; font-size: 16px; font-weight: bold; color: #FFF; text-decoration: none; }
+    .wa { background: #25D366; }
+    .tg { background: #0088CC; }
+    .ig { background: #E1306C; }
+    .fb { background: #1877F2; }
+    .ab { background: #2A2A32; border: 1px solid #444; }
+    .dl { background: var(--gold); color: #000; }
+  </style>
 </head>
 <body>
-<h1>كل روابط HOLISTIC</h1>
-<a href="https://wa.me/967777000000">واتساب</a>
-<a href="https://t.me/holistic_app">تيليجرام</a>
-<a href="https://instagram.com/holistic_app">انستقرام</a>
-<a href="https://facebook.com/holisticapp">فيسبوك</a>
-<a href="https://holistic-app.blogspot.com">الموقع</a>
-<a href="https://github.com/MujahidMods/holistic-update/releases/download/v1.0/HOLISTIC.apk">تحميل التطبيق</a>
+  <div class="card">
+    <h1>HOLISTIC</h1>
+    <p>تواصل مع المطور وتابع أحدث الإصدارات</p>
+    <a id="wa" class="link-btn wa" href="https://wa.me/967738451805">واتساب</a>
+    <a id="tg" class="link-btn tg" href="https://t.me/holistic_app">تيليجرام</a>
+    <a id="ig" class="link-btn ig" href="https://instagram.com/holistic_app">انستقرام</a>
+    <a id="fb" class="link-btn fb" href="https://facebook.com/holisticapp">فيسبوك</a>
+    <a class="link-btn ab" href="about.html">حول التطبيق والمطور</a>
+    <a id="dl" class="link-btn dl" href="update.html">تحميل أحدث نسخة من التطبيق</a>
+  </div>
+  <script>
+    fetch('update.json?t=' + Date.now())
+      .then(r => r.json())
+      .then(data => {
+        const l = data.links || {};
+        if (l.whatsapp) document.getElementById('wa').href = l.whatsapp;
+        if (l.telegram) document.getElementById('tg').href = l.telegram;
+        if (l.instagram) document.getElementById('ig').href = l.instagram;
+        if (l.facebook) document.getElementById('fb').href = l.facebook;
+      });
+  </script>
 </body>
 </html>
