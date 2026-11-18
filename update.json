@@ -1,14 +1,22 @@
 {
-  "app_name": "HOLISTIC",
-  "latest_version": "1.0",
-  "version_code": 1,
-  "apk_url": "https://github.com/MujahidMods/holistic-update/releases/download/v1.0/HOLISTIC.apk",
+  "latest_version": "2.0",
+  "version_code": 2,
+  "apk_url": "https://github.com/MujahidMods/holistic-update/releases/download/v1.1/HOLISTIC.apk",
   "force_update": false,
-  "whatsapp": "https://wa.me/967777000000",
-  "telegram": "https://t.me/holistic_app",
-  "instagram": "https://instagram.com/holistic_app",
-  "facebook": "https://facebook.com/holisticapp",
-  "website": "https://holistic-app.blogspot.com",
-  "update_title": "تحديث جديد متوفر",
-  "update_message": "تم إصلاح الحجب وتحسين الزر الدائم"
+  "update_title": "تحديث جديد لتطبيق HOLISTIC 🚀",
+  "update_message": "تم إطلاق إصدار جديد من تطبيق HOLISTIC يتضمن تحسينات جوهرية:",
+  "whats_new": [
+    "تحسين دقة القلم العائم لتحديد ونسخ النصوص من الشاشة بسرعة فائقة.",
+    "دعم الترجمة الفورية والنطق الصوتي لجميع اللغات.",
+    "تحديث روابط التواصل المباشر وتحسين استقرار حماية الشبكة."
+  ],
+  "links": {
+    "whatsapp": "https://wa.me/967777000000?text=مرحبا، أتواصل معك من تطبيق HOLISTIC",
+    "telegram": "https://t.me/holistic_app",
+    "instagram": "https://instagram.com/holistic_app",
+    "facebook": "https://facebook.com/holisticapp",
+    "website": "https://mujahidmods.github.io/holistic-update/links.html"
+  },
+  "about_app": "تطبيق HOLISTIC المتكامل لإدارة وحماية الشبكة، مراقبة سرعة الإنترنت والبطارية، مع القلم العائم الذكي للترجمة الفورية ونسخ النصوص من أي شاشة.",
+  "about_dev": "تطوير وبرمجة MujahidMods - جميع الحقوق محفوظة."
 }
