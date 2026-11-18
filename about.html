@@ -1,26 +1,36 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>حول HOLISTIC</title>
-<style>
-body{font-family:Arial;background:#0f172a;color:#fff;text-align:center;padding:20px}
-.box{background:#1e293b;padding:20px;border-radius:20px;max-width:400px;margin:auto}
-h1{color:#22c55e}
-.btn{display:block;background:#334155;color:#fff;padding:12px;margin:8px 0;border-radius:12px;text-decoration:none}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>حول تطبيق HOLISTIC</title>
+  <style>
+    :root { --gold: #D4AF37; --bg: #0E0E10; --card: #18181C; }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, -apple-system, sans-serif; }
+    body { background: var(--bg); color: #FFF; display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 20px; }
+    .card { width: 100%; max-width: 440px; background: var(--card); border: 2px solid var(--gold); border-radius: 22px; padding: 24px 20px; }
+    h1 { color: var(--gold); text-align: center; margin-bottom: 16px; }
+    h3 { color: var(--gold); margin: 14px 0 6px; }
+    p { color: #DDD; line-height: 1.7; font-size: 14px; }
+    .btn { display: block; margin-top: 20px; padding: 12px; background: var(--gold); color: #000; text-align: center; border-radius: 12px; font-weight: bold; text-decoration: none; }
+  </style>
 </head>
 <body>
-<div class="box">
-<h1>HOLISTIC</h1>
-<p>تطبيق HOLISTIC يجيب لك كل شي في مكان واحد: تحديثات، روابط، تواصل سريع، وزر دائم يشتغل معك طول الوقت.</p>
-<p>النسخة الحالية: 1.0</p>
-<a class="btn" href="https://wa.me/967777000000">واتساب: 967777000000</a>
-<a class="btn" href="https://t.me/holistic_app">تيليجرام</a>
-<a class="btn" href="https://instagram.com/holistic_app">انستقرام</a>
-<a class="btn" href="https://facebook.com/holisticapp">فيسبوك</a>
-<a class="btn" href="https://holistic-app.blogspot.com">الموقع الرسمي</a>
-</div>
+  <div class="card">
+    <h1>حول HOLISTIC</h1>
+    <h3>عن التطبيق</h3>
+    <p id="aboutApp">تطبيق HOLISTIC المتكامل لإدارة وحماية الشبكة، مراقبة سرعة الإنترنت والبطارية، مع القلم العائم الذكي للترجمة الفورية ونسخ النصوص من أي شاشة.</p>
+    <h3>عن المطور</h3>
+    <p id="aboutDev">تطوير وبرمجة MujahidMods - جميع الحقوق محفوظة.</p>
+    <a class="btn" href="links.html">التواصل مع المطور</a>
+  </div>
+  <script>
+    fetch('update.json?t=' + Date.now())
+      .then(r => r.json())
+      .then(data => {
+        if (data.about_app) document.getElementById('aboutApp').textContent = data.about_app;
+        if (data.about_dev) document.getElementById('aboutDev').textContent = data.about_dev;
+      });
+  </script>
 </body>
 </html>
